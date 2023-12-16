@@ -9,16 +9,16 @@ from fastapi.middleware.cors import CORSMiddleware
 #uvicorn main:app --host 0.0.0.0 --port 8000    WHILE FOR THE EMULATOR ANDROID ADDRESS "10.0.2.2:8000"
 #Noctis high contrast  MY VS CODE THEME
 
-# app=FastAPI()
-# origins = ["0.0.0.0:8000"]
+app=FastAPI()
+origins = ["*"]
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 models.Base.metadata.create_all(engine)
 
